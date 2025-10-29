@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tentang Sistem | SPK AHP–TOPSIS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark" style="background:#0d6efd;">
+  <div class="container-fluid">
+    <a href="dashboard.html" class="navbar-brand d-flex align-items-center">
+      <img src="assets/img/logo.png" width="40" class="me-2">
+      SPK AHP–TOPSIS
+    </a>
+    <a href="dashboard.html" class="btn btn-outline-light btn-sm">Kembali</a>
+  </div>
+</nav>
+
+<div class="container py-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-primary">Tentang Sistem</h2>
+    <p class="text-muted">Sistem Penunjang Keputusan Penentuan Siswa Berprestasi menggunakan Metode AHP dan TOPSIS</p>
+  </div>
+
+  <div class="card p-4 shadow-sm mb-4">
+    <h4 class="text-primary fw-bold">Analytical Hierarchy Process (AHP)</h4>
+    <p>AHP adalah metode pengambilan keputusan multikriteria yang dikembangkan oleh <strong>Thomas L. Saaty</strong>. 
+    Dalam konteks sistem ini, AHP digunakan untuk menentukan <strong>bobot setiap kriteria penilaian</strong> (Sikap, Pengetahuan, Prakerin, Ketidakhadiran, dan Ekstrakurikuler).</p>
+    <h6>Tahapan utama AHP:</h6>
+    <ol>
+      <li>Menyusun hierarki kriteria penilaian</li>
+      <li>Menyusun matriks perbandingan berpasangan</li>
+      <li>Menentukan vektor eigen (bobot kriteria)</li>
+      <li>Menguji konsistensi dengan rasio CR (Consistency Ratio)</li>
+    </ol>
+    <p>Jika nilai CR ≤ 0.1 maka matriks dianggap konsisten.</p>
+  </div>
+
+  <div class="card p-4 shadow-sm mb-4">
+    <h4 class="text-success fw-bold">Technique for Order Preference by Similarity to Ideal Solution (TOPSIS)</h4>
+    <p>TOPSIS merupakan metode yang memilih alternatif terbaik berdasarkan <strong>jarak terdekat terhadap solusi ideal positif</strong> 
+      dan <strong>jarak terjauh dari solusi ideal negatif</strong>. Dalam sistem ini, TOPSIS digunakan untuk menentukan <strong>ranking siswa</strong> berdasarkan bobot hasil AHP.</p>
+    <h6>Tahapan utama TOPSIS:</h6>
+    <ol>
+      <li>Membentuk matriks keputusan</li>
+      <li>Menormalisasi nilai kriteria</li>
+      <li>Melakukan pembobotan</li>
+      <li>Menentukan solusi ideal positif dan negatif</li>
+      <li>Menentukan jarak terhadap solusi ideal</li>
+      <li>Menghitung nilai preferensi dan menentukan ranking</li>
+    </ol>
+  </div>
+
+  <div class="text-center">
+    <a href="dashboard.html" class="btn btn-primary btn-lg px-4">Kembali ke Dashboard</a>
+  </div>
+</div>
+</body>
+</html>
