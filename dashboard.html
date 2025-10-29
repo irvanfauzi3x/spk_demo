@@ -1,100 +1,101 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dashboard — SPK AHP-TOPSIS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | SPK Siswa Berprestasi</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background:var(--primary);">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">SPK Siswa Berprestasi</a>
-    <div class="d-flex">
-      <a class="btn btn-outline-light btn-sm" href="index.html">Logout</a>
-    </div>
-  </div>
-</nav>
-
-<div class="sidebar position-fixed">
-  <div class="px-3 pb-2">
-    <div class="mb-3 px-2"><strong>Admin • SMK Jaya Buana</strong></div>
-    <div class="list-group list-group-flush">
-      <a href="dashboard.html" class="list-group-item active">Dashboard</a>
-      <a href="data_siswa.html" class="list-group-item">Data Siswa</a>
-      <a href="ahp.html" class="list-group-item">Pembobotan AHP</a>
-      <a href="topsis.html" class="list-group-item">Perhitungan TOPSIS</a>
-      <a href="hasil.html" class="list-group-item">Hasil Akhir</a>
-    </div>
-  </div>
-</div>
-
-<div class="container-main">
-  <div class="row mb-3">
-    <div class="col-12">
-      <h4>Dashboard</h4>
-      <div class="small-muted">Ringkasan hasil dan akses cepat</div>
-    </div>
-  </div>
-
-  <div class="row header-stats mb-4">
-    <div class="col-12 col-md-4">
-      <div class="card p-3 stat">
-        <div class="small-muted">Total Siswa</div>
-        <div class="kpi-number">120</div>
-        <div class="small-muted">Data sample 2 tahun terakhir</div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background: #0d6efd;">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/img/logo.png" width="40" class="me-2">
+        SPK Siswa Berprestasi
+      </a>
+      <div class="d-flex align-items-center">
+        <a href="tentang.html" class="btn btn-outline-light btn-sm me-2">Tentang Sistem</a>
+        <a href="index.html" class="btn btn-danger btn-sm">Logout</a>
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="card p-3 stat">
-        <div class="small-muted">Jumlah Kriteria</div>
-        <div class="kpi-number">5</div>
-        <div class="small-muted">Sikap, Pengetahuan, Prakerin, Absen, Ekstra</div>
+  </nav>
+
+  <!-- Sidebar -->
+  <aside class="sidebar shadow-sm">
+    <div class="p-3">
+      <div class="text-center mb-4">
+        <img src="assets/img/logo.png" width="70" class="mb-2">
+        <h6 class="fw-bold text-primary">Admin Panel</h6>
+        <p class="small text-muted">SMK Jaya Buana</p>
+      </div>
+      <div class="nav flex-column">
+        <a href="dashboard.html" class="nav-link active"><i class="bi bi-house-door me-2"></i>Dashboard</a>
+        <a href="data_siswa.html" class="nav-link"><i class="bi bi-people me-2"></i>Data Siswa</a>
+        <a href="ahp.html" class="nav-link"><i class="bi bi-sliders me-2"></i>Pembobotan AHP</a>
+        <a href="topsis.html" class="nav-link"><i class="bi bi-cpu me-2"></i>Perhitungan TOPSIS</a>
+        <a href="hasil.html" class="nav-link"><i class="bi bi-trophy me-2"></i>Hasil Akhir</a>
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="card p-3 stat">
-        <div class="small-muted">Perhitungan Terakhir</div>
-        <div class="kpi-number">2025-10-17</div>
-        <div class="small-muted">Demo data</div>
-      </div>
-    </div>
-  </div>
+  </aside>
 
-  <div class="card mb-4">
-    <div class="card-header">Grafik Hasil Perankingan (Contoh)</div>
-    <div class="card-body">
-      <canvas id="chartRanking" height="120"></canvas>
-    </div>
-  </div>
+  <!-- Main -->
+  <main class="main-content p-4">
+    <div class="container-fluid">
+      <h3 class="fw-bold mb-3">Dashboard Utama</h3>
+      <p class="text-muted">Selamat datang di Sistem Penunjang Keputusan berbasis metode <b>AHP</b> dan <b>TOPSIS</b>.</p>
 
-  <div class="row g-3">
-    <div class="col-md-6">
-      <div class="card p-3">
-        <h6>Quick Actions</h6>
-        <div class="mt-2">
-          <a href="data_siswa.html" class="btn btn-primary me-2">Kelola Data Siswa</a>
-          <a href="ahp.html" class="btn btn-outline-primary">Buka AHP</a>
+      <!-- Statistik -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-3">
+          <div class="info-card text-center p-3">
+            <h6>Total Siswa</h6>
+            <h2 class="text-primary fw-bold">120</h2>
+            <p class="small text-muted">Data aktif 2023/2024</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-card text-center p-3">
+            <h6>Kriteria Penilaian</h6>
+            <h2 class="text-primary fw-bold">5</h2>
+            <p class="small text-muted">Sikap, Pengetahuan, Prakerin, Absen, Ekstra</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-card text-center p-3">
+            <h6>Akurasi Sistem</h6>
+            <h2 class="text-success fw-bold">95%</h2>
+            <p class="small text-muted">Dibanding metode Excel manual</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-card text-center p-3">
+            <h6>Perhitungan Terakhir</h6>
+            <h2 class="text-dark fw-bold">Okt 2025</h2>
+            <p class="small text-muted">Update terbaru</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card p-3">
-        <h6>Recent Top 3 (Demo)</h6>
-        <ol>
-          <li>Ahmad Fauzan — 0.880</li>
-          <li>Siti Nur — 0.790</li>
-          <li>Budi Santoso — 0.740</li>
-        </ol>
+
+      <!-- Chart -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">Grafik Perankingan Siswa (Demo)</div>
+        <div class="card-body">
+          <canvas id="chartRanking" height="100"></canvas>
+        </div>
+      </div>
+
+      <!-- Quick Access -->
+      <div class="d-flex justify-content-between">
+        <a href="ahp.html" class="btn btn-primary btn-lg"><i class="bi bi-sliders"></i> Mulai Pembobotan AHP</a>
+        <a href="topsis.html" class="btn btn-success btn-lg"><i class="bi bi-cpu"></i> Jalankan TOPSIS</a>
       </div>
     </div>
-  </div>
+  </main>
 
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
